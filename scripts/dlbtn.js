@@ -5,30 +5,28 @@ const title_block = document.getElementById("title");
 if (title_block && title_block instanceof HTMLDivElement) {
     
     // Look for H1
-    title_block.children.forEach(element => {
-        
-        // Isolate for H1
-        if (element instanceof HTMLHeadingElement) {
-            console.log("sussy");
+    for (const element of title_block.children) {
+
+        // Skip non headers
+        if (!(element instanceof HTMLHeadingElement))
+            continue;
+
+        // Create Button Element
+        const dl_btn = document.createElement("button");
+
+        // Set Style
+        dl_btn.setAttribute("style", "margin-left: auto;");
+
+        // Inner Text
+        dl_btn.innerHTML = "Download";
+
+        // OnClick Handler
+        dl_btn.onclick = () => {
+            
         }
 
-    });
-
-    const text = article.textContent;
-    const wordMatchRegExp = /[^\s]+/g; // Regular expression
-    const words = text.matchAll(wordMatchRegExp);
-    // matchAll returns an iterator, convert to array to get word count
-    const wordCount = [...words].length;
-    const readingTime = Math.round(wordCount / 200);
-    const badge = document.createElement("p");
-    // Use the same styling as the publish information in an article's header
-    badge.classList.add("color-secondary-text", "type--caption");
-    badge.textContent = `⏱️ ${readingTime} min read`;
-
-    // Support for API reference docs
-    const heading = article.querySelector("h1");
-    // Support for article docs with date
-    const date = article.querySelector("time")?.parentNode;
-
-    (date ?? heading).insertAdjacentElement("afterend", badge);
+        // Clean Up
+        element.appendChild(dl_btn);
+        break;
+    }
 }

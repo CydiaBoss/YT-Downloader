@@ -9,7 +9,7 @@
 	},
 	"content_scripts": [
 		{
-			"js": ["scripts/dlbtn.js"],
+			"js": ["scripts/bundle.js"],
 			"matches": [
 				"*://www.youtube.com/watch*"
 			]

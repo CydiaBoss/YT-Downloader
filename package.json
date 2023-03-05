@@ -2,5 +2,8 @@
   "dependencies": {
     "browserify": "^17.0.0",
     "youtube-dl-exec": "^2.2.3"
+  },
+  "scripts": {
+    "bundle": "browserify scripts/dlbtn.js > scripts/bundle.js"
   }
 }

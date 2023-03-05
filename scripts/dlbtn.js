@@ -1,3 +1,6 @@
+// Grab YT Plugin
+const yt_dl = require("youtube-dl-exec");
+
 // Grab YT Video Title
 const title_block = document.getElementById("title");
 
@@ -22,7 +25,11 @@ if (title_block && title_block instanceof HTMLDivElement) {
 
         // OnClick Handler
         dl_btn.onclick = () => {
-            
+            yt_dl.exec(window.location.href).then((video) => {
+
+            }).catch((err) => {
+                
+            });
         }
 
         // Clean Up
